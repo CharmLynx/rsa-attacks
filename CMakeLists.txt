@@ -10,6 +10,7 @@ endif()
 
 add_executable(rsa
     src/main.cpp
+    src/io.cpp
 )
 
 target_include_directories(rsa PRIVATE include)
