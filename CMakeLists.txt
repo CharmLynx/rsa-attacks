@@ -12,6 +12,7 @@ add_executable(rsa
     src/main.cpp
     src/io.cpp
     src/crt.cpp
+    src/nth_root.cpp
 )
 
 target_include_directories(rsa PRIVATE include)
