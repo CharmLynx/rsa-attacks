@@ -49,6 +49,22 @@ BroadcastData read_broadcast(const string& path) {
     BroadcastData data;
     map<string, mpz_class> values = read_values(path);
 
+    for (int i = 1; ; i++) {
+        string c_key = "C" + to_string(i);
+        string n_key = "N" + to_string(i);
+
+        if (values.count(c_key) == 0 || values.count(n_key) == 0) {
+            break;
+        }
+
+        data.c.push_back(values[c_key]);
+        data.n.push_back(values[n_key]);
+    }
+
+    if (data.c.empty()) {
+        throw runtime_error("no C/N pairs in file: " + path);
+    }
+
     return data;
 }
 
