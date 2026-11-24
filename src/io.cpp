@@ -72,5 +72,12 @@ MitmData read_mitm(const string& path) {
     MitmData data;
     map<string, mpz_class> values = read_values(path);
 
+    if (values.count("C") == 0 || values.count("N") == 0) {
+        throw runtime_error("no C or N in file: " + path);
+    }
+
+    data.c = values["C"];
+    data.n = values["N"];
+
     return data;
 }
