@@ -13,3 +13,4 @@ add_executable(rsa
 )
 
 target_include_directories(rsa PRIVATE include)
+target_link_libraries(rsa PRIVATE gmpxx gmp)
