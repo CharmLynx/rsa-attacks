@@ -14,6 +14,7 @@ add_executable(rsa
     src/crt.cpp
     src/nth_root.cpp
     src/hastad.cpp
+    src/padding.cpp
 )
 
 target_include_directories(rsa PRIVATE include)
