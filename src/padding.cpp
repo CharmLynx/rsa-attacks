@@ -51,7 +51,15 @@ vector<uint8_t> strip_pkcs1_v15(const vector<uint8_t>& em) {
 }
 
 string to_hex(const vector<uint8_t>& bytes) {
+    const char digits[] = "0123456789abcdef";
+
     string hex;
+    hex.reserve(bytes.size() * 2);
+
+    for (uint8_t b : bytes) {
+        hex += digits[b >> 4];
+        hex += digits[b & 0x0F];
+    }
 
     return hex;
 }
